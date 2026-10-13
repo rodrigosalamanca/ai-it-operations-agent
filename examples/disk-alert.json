@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1-design",
+  "synthetic": true,
+  "source": "example-monitor",
+  "event_id": "synthetic-event-001",
+  "occurred_at": "2026-10-13T12:00:00Z",
+  "host_id": "lab-linux-01",
+  "service": "example-service",
+  "severity": "warning",
+  "signal": "disk_used_percent",
+  "value": 91,
+  "unit": "percent",
+  "evidence_refs": ["synthetic-metric-001"]
+}
