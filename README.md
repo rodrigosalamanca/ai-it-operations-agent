@@ -1,4 +1,4 @@
-# Leaf Solutions — IT Operations Agent
+# North Maple Systems — IT Operations Agent
 
 **Predictive Incident Intelligence · Product in development**
 
@@ -36,4 +36,4 @@ python3 demo/triage.py
 python3 -m unittest discover -s tests -v
 ```
 
-No model calls or infrastructure actions occur. Synthetic outputs are included for inspection. No license has been selected; establish rights and contribution terms before accepting external code. Project owner: Rodrigo Salamanca, Leaf Solutions.
+No model calls or infrastructure actions occur. Synthetic outputs are included for inspection. No license has been selected; establish rights and contribution terms before accepting external code. Project owner: Rodrigo Salamanca, North Maple Systems.

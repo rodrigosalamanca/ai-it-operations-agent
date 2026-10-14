@@ -1,4 +1,4 @@
-# Leaf Solutions — IT Operations Agent
+# North Maple Systems — IT Operations Agent
 
 **Synthetic offline demo · No AI · No infrastructure actions**
 

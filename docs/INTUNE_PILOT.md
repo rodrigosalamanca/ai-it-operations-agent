@@ -1,6 +1,6 @@
 # Microsoft Intune — proposed customer entry workflow
 
-**Leaf Solutions — IT Operations Agent · Design only · No connector or upload service implemented**
+**North Maple Systems — IT Operations Agent · Design only · No connector or upload service implemented**
 
 ## Customer experience
 

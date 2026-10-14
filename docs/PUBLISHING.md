@@ -1,12 +1,12 @@
 # Publication and information ownership
 
-Project: **Leaf Solutions — IT Operations Agent**. Updated 2026-10-13.
+Project: **North Maple Systems — IT Operations Agent**. Updated 2026-10-13.
 
 ## GitHub destination
 
 Public repository: [rodrigosalamanca/ai-it-operations-agent](https://github.com/rodrigosalamanca/ai-it-operations-agent).
 
-The owner selected the personal account as the publication destination. The retired product name and former organization target are withdrawn. No Leaf Solutions organization handle is required for this publication.
+The owner selected the personal account as the publication destination. The retired product name and former organization target are withdrawn. No North Maple Systems organization handle is required for this publication.
 
 The repository was created using the owner's authenticated GitHub browser session, because repository creation was not exposed by the connector. Documentation is published through the connected GitHub tools. An offline synthetic demonstration is included; no AI agent or deployed service is available.
 
@@ -14,7 +14,7 @@ The repository was created using the owner's authenticated GitHub browser sessio
 
 - Product repository: architecture, roadmap, assumptions, competitive/financial research, security, maintenance and future implementation.
 - Existing private AI-HUB: concise project context, decisions and tasks. Reference this repository rather than copy its technical documents.
-- Existing Leaf Solutions website: one brief entry in its Projects page with verified links. Preserve the separate Amazon Q Business/Confluence experience case. Website integration remains pending.
+- Existing North Maple Systems website: one brief entry in its Projects page with verified links. Preserve the separate Amazon Q Business/Confluence experience case. Website integration remains pending.
 
 ## Remaining readiness work
 

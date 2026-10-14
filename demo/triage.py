@@ -139,7 +139,7 @@ def triage(alert, context, runbook):
 
 
 def markdown(report):
-    lines = ['# Leaf Solutions — IT Operations Agent', '', '**Synthetic offline demo · No AI · No infrastructure actions**', '', '## Observed facts', '']
+    lines = ['# North Maple Systems — IT Operations Agent', '', '**Synthetic offline demo · No AI · No infrastructure actions**', '', '## Observed facts', '']
     lines += [f"- {f['text']} Evidence: {', '.join(f['evidence'])}." for f in report['facts']]
     lines += ['', '## Time to next configured threshold', '', report['forecast']['summary'], '', report['forecast']['limitation'], '', 'Evidence: ' + ', '.join(report['forecast']['evidence'])]
     for title, key in [('Unconfirmed hypotheses', 'hypotheses'), ('Missing context', 'missing_context'), ('Suggested read-only checks', 'suggested_read_only_checks')]:
@@ -151,9 +151,9 @@ def markdown(report):
 def html(report):
     def items(values):
         return '<ul>' + ''.join('<li>' + escape(v) + '</li>' for v in values) + '</ul>'
-    parts = ['<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Leaf Solutions — Synthetic incident demo</title>',
+    parts = ['<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>North Maple Systems — Synthetic incident demo</title>',
              '<style>body{font:17px/1.65 system-ui;margin:auto;padding:40px 24px;max-width:880px;background:#f5f2ea;color:#232f32}h1{font-size:32px;line-height:1.2}h2{font-size:22px}section{background:white;padding:18px 24px;margin:20px 0;border-radius:12px}.badge{color:#944e31;font-weight:700}li{margin:8px 0}small{display:block;color:#555}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}</style>',
-             '<body><p class="badge">LEAF SOLUTIONS / LOCAL DEMONSTRATION</p><h1>IT Operations Agent</h1><p>Synthetic data · Deterministic rules · No AI connection</p><section><h2>Observed facts</h2>',
+             '<body><p class="badge">NORTH MAPLE SYSTEMS / LOCAL DEMONSTRATION</p><h1>IT Operations Agent</h1><p>Synthetic data · Deterministic rules · No AI connection</p><section><h2>Observed facts</h2>',
              items([f["text"] + ' Evidence: ' + ', '.join(f['evidence']) for f in report['facts']]), '</section>']
     parts += ['<section><h2>Time to next configured threshold</h2><p>' + escape(report['forecast']['summary']) + '</p><small>' + escape(report['forecast']['limitation']) + '</small><p>Evidence: ' + escape(', '.join(report['forecast']['evidence'])) + '</p></section>']
     for title, key in [('Unconfirmed hypotheses', 'hypotheses'), ('Missing context', 'missing_context'), ('Suggested read-only checks', 'suggested_read_only_checks')]:

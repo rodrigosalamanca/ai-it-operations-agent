@@ -31,7 +31,7 @@ def monthly_cost(briefs_per_day, infrastructure, backup, maintenance_hours):
 
 
 def main():
-    print("Leaf Solutions IT Operations Agent: unvalidated planning estimates, USD, 50 servers")
+    print("North Maple Systems IT Operations Agent: unvalidated planning estimates, USD, 50 servers")
     for name, inputs in SCENARIOS.items():
         inference, cash, total = monthly_cost(*inputs)
         print(f"{name}: inference={inference:.2f}, cash={cash:.2f}, total={total:.2f}/month")

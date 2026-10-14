@@ -18,7 +18,7 @@ GitHub verification: connected identity and organization memberships inspected t
 
 Research relied on the official vendor links in [COMPETITIVE_ANALYSIS.md](COMPETITIVE_ANALYSIS.md). Financial inputs beyond cited vendor price anchors are explicitly labeled assumptions. The local portfolio mockup and synced project sources were not edited.
 
-Brand decision, 2026-10-13: use **Leaf Solutions — IT Operations Agent**, retaining `ai-it-operations-agent` as the repository slug. Existing AI-HUB and website structure were inspected; the private AI-HUB project index was subsequently registered and the public product repository created; website integration remains pending.
+Brand decision, 2026-10-13: use **North Maple Systems — IT Operations Agent**, retaining `ai-it-operations-agent` as the repository slug. Existing AI-HUB and website structure were inspected; the private AI-HUB project index was subsequently registered and the public product repository created; website integration remains pending.
 
 Publication update: the public repository was created in the authenticated account. The private AI-HUB index contains only context, decisions and tasks; technical documents remain in the product repository.
 

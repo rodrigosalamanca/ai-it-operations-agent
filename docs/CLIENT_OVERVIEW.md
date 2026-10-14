@@ -1,9 +1,9 @@
-# Leaf Solutions — IT Operations Agent
+# North Maple Systems — IT Operations Agent
 ## Predictive Incident Intelligence
 
 **Customer product overview · Proposed pilot · Product in development**
 
-Leaf Solutions is developing an IT operations product designed to identify patterns that preceded past incidents and recognize similar warning signals in the current environment. The goal is to help operations teams investigate emerging risks earlier and choose preventive steps with supporting evidence.
+North Maple Systems is developing an IT operations product designed to identify patterns that preceded past incidents and recognize similar warning signals in the current environment. The goal is to help operations teams investigate emerging risks earlier and choose preventive steps with supporting evidence.
 
 **Current availability:** the predictive product and platform connectors are not implemented. An existing offline demonstration uses synthetic data and fixed diagnostic rules; it does not demonstrate learned incident prediction. This document describes the intended product and a proposed validation pilot, not a service already available for production.
 
@@ -11,7 +11,7 @@ Leaf Solutions is developing an IT operations product designed to identify patte
 
 Operational incidents often leave information across monitoring systems, tickets, change records, infrastructure and backup platforms. Teams may have the history of a failure but lack a practical way to relate that history to current conditions.
 
-Leaf Solutions intends to bring those signals together: what happened before an incident, which assets and services were affected, and whether a comparable pattern is emerging again. Existing monitoring remains responsible for telemetry and its native alerting. The proposed product adds historical incident analysis and risk assessment across agreed data sources.
+North Maple Systems intends to bring those signals together: what happened before an incident, which assets and services were affected, and whether a comparable pattern is emerging again. Existing monitoring remains responsible for telemetry and its native alerting. The proposed product adds historical incident analysis and risk assessment across agreed data sources.
 
 ## Intended customer experience
 
@@ -69,7 +69,7 @@ The initial model approach will be selected after inspecting the data. A languag
 
 A useful pilot needs historical incidents with dates, affected assets, incident categories and operational outcomes, plus timestamped signals from before those incidents. It also needs representative non-incident periods to assess false alarms. Data after an incident begins cannot be used to claim that the incident was predicted beforehand.
 
-Discovery will determine the history required, the number of usable incidents, missing records, time alignment and whether the proposed target is predictable with the available data. If evidence is insufficient, Leaf Solutions will recommend collecting additional data or narrowing the use case rather than claim validated prediction.
+Discovery will determine the history required, the number of usable incidents, missing records, time alignment and whether the proposed target is predictable with the available data. If evidence is insufficient, North Maple Systems will recommend collecting additional data or narrowing the use case rather than claim validated prediction.
 
 The original 50-server estate is an illustrative planning scenario, not a capacity guarantee. Pilot size and data volume will be defined with the customer.
 
@@ -95,7 +95,7 @@ Agreed measures would include the proportion of incidents detected, the proporti
 
 ## Responsibilities and commercial scope
 
-Leaf Solutions would define the pilot workflow, prepare the agreed integration and evaluation plan, and report results and limitations. The customer would designate an operational owner, approve data access, confirm incident labels and review recommendations.
+North Maple Systems would define the pilot workflow, prepare the agreed integration and evaluation plan, and report results and limitations. The customer would designate an operational owner, approve data access, confirm incident labels and review recommendations.
 
 Pricing, deployment model, support hours and delivery dates will be proposed after discovery. Earlier internal cost calculations are exploratory and are not a customer quote for this predictive scope.
 
