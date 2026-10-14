@@ -41,12 +41,19 @@ Connector priorities will be agreed during discovery. The following are candidat
 | Data area | Candidate platforms | Intended information |
 | --- | --- | --- |
 | Monitoring and observability | Zabbix, Prometheus/Grafana, Datadog | Alerts, metric history, availability and operating conditions |
+| Endpoint management | Microsoft Intune | Approved device reports and periodic inventory/compliance observations; report import and connected modes are planned |
 | Cloud and infrastructure | AWS, Microsoft Azure, VMware | Asset inventory, resource events, changes and dependencies |
 | Backup and recovery | Veeam and the customer's existing backup platform | Job outcomes, failure history and recovery-related events |
 | Service management | ServiceNow, Jira Service Management | Incident records, impact, resolution and change history |
 | Logs and security events | Customer-approved log platforms, Wazuh | Relevant event sequences and bounded diagnostic evidence |
 
 Coverage depends on API availability, customer permissions, data quality and agreed scope. Platform names identify integration candidates, not vendor partnerships or endorsements. A first pilot would connect a small agreed subset rather than promise support for every platform.
+
+## Microsoft Intune: a simpler entry point
+
+For customers using Intune, the planned entry workflow is either uploading a selected device report or having an administrator authorize a scoped analysis connection. The user would see affected devices, supporting observations, missing information and recommended next checks without navigating API configuration. Neither workflow is implemented yet.
+
+A single report supports current-state assessment. Prediction requires repeated observations linked to incident outcomes and comparable non-incident periods. Intune data alone may not contain enough information for the selected incident category. See the [Intune pilot design](INTUNE_PILOT.md) for data and access requirements.
 
 ## How the proposed product would work
 
