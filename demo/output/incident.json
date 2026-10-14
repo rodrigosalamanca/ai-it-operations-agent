@@ -1,0 +1,67 @@
+{
+  "incident_id": "synthetic-event-001",
+  "mode": "synthetic deterministic demo \u2014 no AI",
+  "facts": [
+    {
+      "text": "Disk utilization was reported at 91% on lab-linux-01 at 2026-10-13T12:00:00Z.",
+      "evidence": [
+        "synthetic-event-001"
+      ]
+    },
+    {
+      "text": "Disk utilization changed from 75% to 91% over 6 hours (+16 percentage points).",
+      "evidence": [
+        "synthetic-metric-000",
+        "synthetic-metric-001"
+      ]
+    }
+  ],
+  "hypotheses": [
+    "Log growth is one possible cause, but no supporting log-size evidence is available. Data growth or insufficient filesystem capacity are alternatives."
+  ],
+  "missing_context": [
+    "Directory growth and log sizes are unknown.",
+    "Service impact is unknown.",
+    "Inode utilization is unknown."
+  ],
+  "suggested_read_only_checks": [
+    "Review disk utilization history in the existing monitoring tool.",
+    "Review mount capacity and inode utilization using read-only monitoring views.",
+    "Ask an authorized operator to inspect directory-size summaries without transmitting file contents.",
+    "Confirm service impact before selecting any remediation."
+  ],
+  "runbook": "disk-triage@0.1 (demo-only)",
+  "actions_executed": [],
+  "review": {
+    "status": "pending",
+    "note": ""
+  },
+  "evidence_catalog": {
+    "synthetic-event-001": {
+      "schema_version": "0.1-design",
+      "synthetic": true,
+      "source": "example-monitor",
+      "event_id": "synthetic-event-001",
+      "occurred_at": "2026-10-13T12:00:00Z",
+      "host_id": "lab-linux-01",
+      "service": "example-service",
+      "severity": "warning",
+      "signal": "disk_used_percent",
+      "value": 91,
+      "unit": "percent",
+      "evidence_refs": [
+        "synthetic-metric-001"
+      ]
+    },
+    "synthetic-metric-000": {
+      "id": "synthetic-metric-000",
+      "at": "2026-10-13T06:00:00Z",
+      "used_percent": 75
+    },
+    "synthetic-metric-001": {
+      "id": "synthetic-metric-001",
+      "at": "2026-10-13T12:00:00Z",
+      "used_percent": 91
+    }
+  }
+}

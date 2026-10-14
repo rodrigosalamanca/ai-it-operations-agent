@@ -1,6 +1,6 @@
 # Security and privacy design
 
-Status: proposed controls, not implemented or audited. There are no deployed versions or supported releases. This document does not claim compliance with any standard.
+Status: proposed production controls, not implemented or audited. The offline synthetic demo has input validation and escaped HTML output, but no authentication, production redaction or security certification. There are no deployed versions or supported releases. This document does not claim compliance with any standard.
 
 ## Threat model
 

@@ -1,6 +1,6 @@
 # Competitive analysis
 
-Research date: 2026-10-13. Vendor statements describe advertised capabilities, not independently tested results. Prices are listed USD references, not customer quotes; confirm region, contract, allowances and billing terms before purchase. Leaf Solutions IT Operations Agent has no implemented capabilities or validated market advantage.
+Research date: 2026-10-13. Vendor statements describe advertised capabilities, not independently tested results. Prices are listed USD references, not customer quotes; confirm region, contract, allowances and billing terms before purchase. Leaf Solutions IT Operations Agent has an offline synthetic rules-based demonstration, but no AI agent, production capability or validated market advantage.
 
 | Alternative | Source-backed reference | Implication for Leaf Solutions IT Operations Agent — hypothesis |
 | --- | --- | --- |

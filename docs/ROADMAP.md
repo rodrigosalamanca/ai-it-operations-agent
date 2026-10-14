@@ -1,6 +1,6 @@
 # MVP roadmap and acceptance gates
 
-No milestone below is complete. Illustrative schedule: 8–10 weeks with one engineer at approximately 20 hours/week, plus operator/security review. This is a planning estimate, not a delivery commitment; the 200 engineering hours in the financial model exclude reviewer time.
+A preliminary offline synthetic demo is available with focused validation tests. It does not complete any production milestone below. Illustrative schedule: 8–10 weeks with one engineer at approximately 20 hours/week, plus operator/security review. This is a planning estimate, not a delivery commitment; the 200 engineering hours in the financial model exclude reviewer time.
 
 | Milestone | Planned work | Evidence required to exit |
 | --- | --- | --- |

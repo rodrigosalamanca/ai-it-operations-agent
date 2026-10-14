@@ -21,3 +21,5 @@ Research relied on the official vendor links in [COMPETITIVE_ANALYSIS.md](COMPET
 Brand decision, 2026-10-13: use **Leaf Solutions — IT Operations Agent**, retaining `ai-it-operations-agent` as the repository slug. Existing AI-HUB and website structure were inspected; the private AI-HUB project index was subsequently registered and the public product repository created; website integration remains pending.
 
 Publication update: the public repository was created in the authenticated account. The private AI-HUB index contains only context, decisions and tasks; technical documents remain in the product repository.
+
+Offline demo update, 2026-10-13: added deterministic synthetic disk triage, a demo-only reviewed runbook, generated HTML/Markdown/JSON reports and unit tests. No model, network request or infrastructure executor is included. This is an initial software demonstration, not completion of the production MVP.

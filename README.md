@@ -1,6 +1,6 @@
 # Leaf Solutions — IT Operations Agent
 
-**A Leaf Solutions initiative · Design and planning stage · No agent implementation yet**
+**A Leaf Solutions initiative · Pre-MVP · Offline deterministic demo · No AI agent implemented**
 
 Leaf Solutions IT Operations Agent is a proposed operations assistant for small IT teams managing hybrid server environments. It aims to turn monitoring alerts and approved operational knowledge into concise incident briefs, evidence-backed diagnostic hypotheses, and suggested runbooks.
 
@@ -8,7 +8,7 @@ The initial planning scenario is **50 servers**. This is a sizing assumption, no
 
 ## Current status
 
-This repository contains product, architecture, security, maintenance, business, and delivery documentation, plus synthetic examples and a reproducible financial calculator. There is no running service, monitoring integration, trained model, action executor, dashboard, or deployment package. Every product capability below is planned. No production readiness, customer results, certification, or guaranteed savings are claimed.
+This repository contains planning documentation, a financial calculator, and a working offline demonstration that produces incident reports from synthetic disk alerts using deterministic rules. There is no AI agent, monitoring integration, model connection, server action executor, authenticated review system or production deployment. The product capabilities below remain planned. No production readiness, customer results, certification, or guaranteed savings are claimed.
 
 ## Problem and proposed approach
 
@@ -28,6 +28,17 @@ A disk utilization alert arrives for a synthetic Linux host. The proposed assist
 
 See [synthetic input](examples/disk-alert.json) and [illustrative output](examples/incident-brief.md). These are hand-authored design fixtures, not output from an implemented agent.
 
+## Run the offline demonstration
+
+Python 3 standard library only; no credentials, packages or network access required:
+
+```sh
+python3 demo/triage.py
+python3 -m unittest discover -s tests -v
+```
+
+Open the generated [HTML report](demo/output/incident.html), or inspect [Markdown](demo/output/incident.md) and [structured JSON](demo/output/incident.json). Checked-in outputs are reproducible synthetic samples. See [demo usage and limitations](demo/README.md), including how to annotate an operator review.
+
 ## Proposed architecture
 
 ```mermaid
@@ -45,7 +56,7 @@ flowchart LR
     V --> F[Deterministic fallback on failure]
 ```
 
-All components are proposed. There is no execution path to managed servers in the MVP. See [architecture and boundaries](docs/ARCHITECTURE.md).
+The diagram describes the proposed production architecture; the offline demo implements only bounded file validation, fixed runbook selection and deterministic reporting. There is no execution path to managed servers in the MVP. See [architecture and boundaries](docs/ARCHITECTURE.md).
 
 ## Documentation
 

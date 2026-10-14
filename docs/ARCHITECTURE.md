@@ -1,6 +1,6 @@
 # Proposed architecture
 
-Status: design only. Choices are provisional and no components are implemented.
+Status: proposed production architecture. A separate offline deterministic demo implements synthetic file validation and reporting only; no production component or AI gateway is implemented. Choices remain provisional.
 
 ## MVP components and boundaries
 

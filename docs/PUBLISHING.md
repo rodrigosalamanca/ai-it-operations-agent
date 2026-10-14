@@ -8,7 +8,7 @@ Public repository: [rodrigosalamanca/ai-it-operations-agent](https://github.com/
 
 The owner selected the personal account as the publication destination. The retired product name and former organization target are withdrawn. No Leaf Solutions organization handle is required for this publication.
 
-The repository was created using the owner's authenticated GitHub browser session, because repository creation was not exposed by the connector. Documentation is published through the connected GitHub tools. No agent, deployment or live demonstration is included.
+The repository was created using the owner's authenticated GitHub browser session, because repository creation was not exposed by the connector. Documentation is published through the connected GitHub tools. An offline synthetic demonstration is included; no AI agent or deployed service is available.
 
 ## Information ownership
 

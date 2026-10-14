@@ -1,0 +1,9 @@
+{
+  "synthetic": true,
+  "host_id": "lab-linux-01",
+  "mount": "/",
+  "samples": [
+    {"id": "synthetic-metric-000", "at": "2026-10-13T06:00:00Z", "used_percent": 75},
+    {"id": "synthetic-metric-001", "at": "2026-10-13T12:00:00Z", "used_percent": 91}
+  ]
+}

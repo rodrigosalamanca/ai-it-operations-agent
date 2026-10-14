@@ -1,0 +1,12 @@
+{
+  "id": "disk-triage",
+  "version": "0.1",
+  "approval": "demo-only",
+  "signal": "disk_used_percent",
+  "checks": [
+    "Review disk utilization history in the existing monitoring tool.",
+    "Review mount capacity and inode utilization using read-only monitoring views.",
+    "Ask an authorized operator to inspect directory-size summaries without transmitting file contents.",
+    "Confirm service impact before selecting any remediation."
+  ]
+}
