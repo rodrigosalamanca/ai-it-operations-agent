@@ -28,3 +28,8 @@ Position: a narrowly scoped, evidence-backed assistant for North Maple Systems c
 Interview 5–10 small IT teams or service providers. Ask for incident frequency, median triage time, existing tooling, privacy restrictions, procurement effort and willingness to pay. Test a prototype against the team's current workflow and at least one established alternative. Record lost deals and switching costs, not only positive feedback.
 
 Proceed only if pilot operators find the briefs useful, security requirements can be met and measured benefit exceeds fully allocated cost. Potential weaknesses: no deployed product, limited integration coverage, no established support service, dependence on external models and limited engineering capacity. Customer demand, market size, pricing power and North Maple Systems brand/legal availability have not been verified.
+
+
+## 2026-10-14 — Current predictive pilot scope
+
+The proposed first pilot is **next-backup failure prediction using Zabbix + Veeam**. Start with approved historical exports, including successful jobs and failures, then consider scoped read-only APIs. Compare simple rules with a small ML model on later held-out data; measure recall, precision, false warnings, advance notice and operator effort. Numerical probabilities require calibration. The optional LLM explains evidence; it does not calculate or validate the predictive model. No trained predictor or live connectors are implemented. Wazuh, Fortinet, Intune and other sources remain later candidates. See [the pilot design](PREDICTIVE_PILOT.md) for the source of truth.

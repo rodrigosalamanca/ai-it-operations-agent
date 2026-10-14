@@ -21,3 +21,10 @@ Take encrypted daily database/configuration backups with an initial 7-day backup
 Version application, schemas, prompts, runbooks and evaluation data separately. Require pull request review, release notes, pinned dependencies and rollback instructions once code exists. Stage changes on synthetic data, then limited pilot hosts. Revert model/prompt changes if evidence accuracy or safety gates regress. Back up before schema migrations; prove restore compatibility. Prioritize critical security findings immediately with an owner and a risk-based mitigation deadline; no unsupported patch SLA is promised.
 
 Budget 4 hours/month routine maintenance in the base financial case, excluding major incidents and upgrades. Track actual time and revise the estimate. If costs, queue failures or quality deteriorate, disable inference and use deterministic alert/runbook output. Document support hours, escalation, handover and end-of-life policy before any paid deployment.
+
+
+## 2026-10-14 — Current predictive pilot scope
+
+The proposed first pilot is **next-backup failure prediction using Zabbix + Veeam**. Start with approved historical exports, including successful jobs and failures, then consider scoped read-only APIs. Compare simple rules with a small ML model on later held-out data; measure recall, precision, false warnings, advance notice and operator effort. Numerical probabilities require calibration. The optional LLM explains evidence; it does not calculate or validate the predictive model. No trained predictor or live connectors are implemented. Wazuh, Fortinet, Intune and other sources remain later candidates. See [the pilot design](PREDICTIVE_PILOT.md) for the source of truth.
+
+Pilot maintenance must track input freshness, missingness, label quality, feature drift, delayed outcomes, calibration and false-warning burden. Retraining requires a reviewed dataset, temporal evaluation and versioned approval; never auto-promote a new model. Preserve rollback to the prior model or suspend scoring. Assign separate ownership for data pipelines, prediction quality and optional LLM processing.

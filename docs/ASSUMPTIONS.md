@@ -29,3 +29,8 @@ Windows, Kubernetes, multi-tenant SaaS, autonomous remediation, full log search,
 Collect an inventory, 14-day alert sample, incident sample with operator time, data sensitivity classification, approved runbooks, integration API limits, hosting constraints, and a customer owner. Confirm whether 50 servers means physical hosts, VMs, or billed monitoring hosts. Get permission for telemetry transfer and retention. Replace each assumption with a measured value or explicitly keep it provisional.
 
 Open decisions: hosting region, model/provider, monitoring adapter, ticketing workflow, business legal identity, public license, support hours, and customer willingness to pay. None is established by this planning pack.
+
+
+## 2026-10-14 — Current predictive pilot scope
+
+The proposed first pilot is **next-backup failure prediction using Zabbix + Veeam**. Start with approved historical exports, including successful jobs and failures, then consider scoped read-only APIs. Compare simple rules with a small ML model on later held-out data; measure recall, precision, false warnings, advance notice and operator effort. Numerical probabilities require calibration. The optional LLM explains evidence; it does not calculate or validate the predictive model. No trained predictor or live connectors are implemented. Wazuh, Fortinet, Intune and other sources remain later candidates. See [the pilot design](PREDICTIVE_PILOT.md) for the source of truth.

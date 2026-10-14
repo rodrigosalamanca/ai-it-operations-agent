@@ -42,3 +42,8 @@ No write, wipe, retire, reboot, policy update or remediation operations are in s
 Initial implementation sequence: synthetic report schema and importer → repeated observations and incident labels → baseline evaluation → authorized read-only lab connector → supervised customer pilot. No dates, accuracy levels or savings are promised.
 
 Sources checked 2026-10-13. Report import, user interface, connected collection and predictive evaluation are all planned work.
+
+
+## 2026-10-14 — Current predictive pilot scope
+
+The proposed first pilot is **next-backup failure prediction using Zabbix + Veeam**. Start with approved historical exports, including successful jobs and failures, then consider scoped read-only APIs. Compare simple rules with a small ML model on later held-out data; measure recall, precision, false warnings, advance notice and operator effort. Numerical probabilities require calibration. The optional LLM explains evidence; it does not calculate or validate the predictive model. No trained predictor or live connectors are implemented. Wazuh, Fortinet, Intune and other sources remain later candidates. See [the pilot design](PREDICTIVE_PILOT.md) for the source of truth.

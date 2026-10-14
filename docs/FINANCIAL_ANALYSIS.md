@@ -51,3 +51,8 @@ At base contribution, recovering USD 14,000 requires about 53 customer-months be
 ## Reproduce and revise
 
 Run `python3 tools/financial_model.py`. Edit the clearly named inputs to test measured workloads, token usage, provider quotes, support hours and incident time. The script contains arithmetic only and has no model or infrastructure integration. Recalculate after discovery and monthly during pilot; never present an assumption as a measured result.
+
+
+## 2026-10-14 — Current predictive pilot scope
+
+The proposed first pilot is **next-backup failure prediction using Zabbix + Veeam**. Start with approved historical exports, including successful jobs and failures, then consider scoped read-only APIs. Compare simple rules with a small ML model on later held-out data; measure recall, precision, false warnings, advance notice and operator effort. Numerical probabilities require calibration. The optional LLM explains evidence; it does not calculate or validate the predictive model. No trained predictor or live connectors are implemented. Wazuh, Fortinet, Intune and other sources remain later candidates. See [the pilot design](PREDICTIVE_PILOT.md) for the source of truth.

@@ -25,7 +25,7 @@ The initial pilot would select one incident category and a limited set of source
 - [Security design](SECURITY.md): earlier read-only design principles; production controls remain proposed.
 - [Earlier experiment](demo/README.md): reproducible offline diagnostic demonstration, not incident prediction.
 
-The architecture, roadmap, assumptions, competitive and financial documents under `docs/` describe the earlier diagnostic scope and require reassessment for the predictive product. Their costs, schedules and model workload are not a predictive pilot quote or validated forecast.
+The architecture and roadmap now describe the predictive pilot. Earlier assumptions, competitive and financial calculations retain their diagnostic-scope notices and require reassessment. Their costs, schedules and model workload are not a predictive pilot quote or validated forecast.
 
 ## Reproduce the earlier experiment
 
@@ -37,3 +37,8 @@ python3 -m unittest discover -s tests -v
 ```
 
 No model calls or infrastructure actions occur. Synthetic outputs are included for inspection. No license has been selected; establish rights and contribution terms before accepting external code. Project owner: Rodrigo Salamanca, North Maple Systems.
+
+
+## 2026-10-14 — Current predictive pilot scope
+
+The proposed first pilot is **next-backup failure prediction using Zabbix + Veeam**. Start with approved historical exports, including successful jobs and failures, then consider scoped read-only APIs. Compare simple rules with a small ML model on later held-out data; measure recall, precision, false warnings, advance notice and operator effort. Numerical probabilities require calibration. The optional LLM explains evidence; it does not calculate or validate the predictive model. No trained predictor or live connectors are implemented. Wazuh, Fortinet, Intune and other sources remain later candidates. See [the pilot design](docs/PREDICTIVE_PILOT.md) for the source of truth.

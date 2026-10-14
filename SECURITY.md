@@ -34,3 +34,10 @@ Proposed response: disable affected integration/inference; preserve minimal evid
 ## Future execution gate
 
 Any executor requires a separate threat review. Approval must bind authenticated operator, host, exact runbook version, validated parameters, expiry and unique request ID. Require least privilege, dry run, rollback, kill switch and independent audit. Reject stale approvals and prevent replay. Natural-language approval or model text alone is insufficient.
+
+
+## 2026-10-14 — Current predictive pilot scope
+
+The proposed first pilot is **next-backup failure prediction using Zabbix + Veeam**. Start with approved historical exports, including successful jobs and failures, then consider scoped read-only APIs. Compare simple rules with a small ML model on later held-out data; measure recall, precision, false warnings, advance notice and operator effort. Numerical probabilities require calibration. The optional LLM explains evidence; it does not calculate or validate the predictive model. No trained predictor or live connectors are implemented. Wazuh, Fortinet, Intune and other sources remain later candidates. See [the pilot design](docs/PREDICTIVE_PILOT.md) for the source of truth.
+
+Before imports: classify fields, remove secrets and unnecessary user identifiers, approve retention, isolate customer data and record access. Prevent prediction-time leakage and protect training/model artifacts. Export/API scope does not grant write access to backup or monitoring systems.

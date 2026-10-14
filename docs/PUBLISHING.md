@@ -21,3 +21,8 @@ The repository was created using the owner's authenticated GitHub browser sessio
 Select a license and verified rights holder before accepting external code contributions. Establish a private security reporting channel, maintainer ownership and appropriate review protections. No license, security contact, branch protection or operational support SLA has been configured by this publication.
 
 Build and evaluate the synthetic demonstration before claiming implemented agent behavior. Any real monitoring integration requires read-only access, approved data policy and a supervised laboratory test. Fifty servers remain a planning scenario.
+
+
+## 2026-10-14 — Current predictive pilot scope
+
+The proposed first pilot is **next-backup failure prediction using Zabbix + Veeam**. Start with approved historical exports, including successful jobs and failures, then consider scoped read-only APIs. Compare simple rules with a small ML model on later held-out data; measure recall, precision, false warnings, advance notice and operator effort. Numerical probabilities require calibration. The optional LLM explains evidence; it does not calculate or validate the predictive model. No trained predictor or live connectors are implemented. Wazuh, Fortinet, Intune and other sources remain later candidates. See [the pilot design](PREDICTIVE_PILOT.md) for the source of truth.
