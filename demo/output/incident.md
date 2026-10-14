@@ -7,6 +7,14 @@
 - Disk utilization was reported at 91% on lab-linux-01 at 2026-10-13T12:00:00Z. Evidence: synthetic-event-001.
 - Disk utilization changed from 75% to 91% over 6 hours (+16 percentage points). Evidence: synthetic-metric-000, synthetic-metric-001.
 
+## Time to next configured threshold
+
+Next configured threshold: 95% (synthetic demo configuration). Observed growth: 2.67 percentage points/hour. Estimated time: 1.50 hours from the last sample (2026-10-13T12:00:00Z); projected crossing: 2026-10-13T13:30:00+00:00.
+
+Linear scenario, not a guaranteed alert delivery time. Two points cannot establish normal background growth; longer history is required. No cleanup, capacity change or workload change is assumed.
+
+Evidence: synthetic-event-001, synthetic-metric-000, synthetic-metric-001
+
 ## Unconfirmed hypotheses
 
 - Log growth is one possible cause, but no supporting log-size evidence is available. Data growth or insufficient filesystem capacity are alternatives.

@@ -41,3 +41,9 @@ Missing history, stale context (>15 minutes relative to alert time), conflicting
 Runbooks are trusted local demo configuration, not cryptographically signed documents. The `demo-only` label is not a production approval mechanism. Unknown input fields are not treated as instructions. HTML output escapes text; JSON evidence retains all supplied synthetic alert fields for inspection. There is no production privacy filter, inference, retrieval search, webhook, paging, queue, telemetry collector, access control or deployment. The 50-server scenario has not been tested.
 
 Next: obtain the missing operational context, evaluate on additional synthetic incident cases, then select an approved model/provider and read-only lab monitoring adapter separately.
+
+## Time to next configured threshold
+
+The synthetic alert explicitly configures 90% and 95% thresholds. At 91%, the next is 95%. The 75% → 91% rise over six hours yields 2.67 percentage points/hour and a linear crossing estimate of 1.5 hours after the last sample: 2026-10-13 13:30 UTC. This is a scenario based on recent growth, not established normal background growth or guaranteed alert delivery; monitoring duration/hysteresis are not modeled. The timestamp is historical fixture time, not a live countdown.
+
+Missing thresholds or invalid/stale/conflicting trend data produce no ETA. Flat or declining net usage yields no projected crossing. Already reached thresholds are labeled. Edit `configured_thresholds_percent` in the synthetic alert to change the target; the tool selects the smallest threshold strictly above current usage. The model assumes unchanged filesystem capacity and workload; long-term baseline and uncertainty estimation remain future work.

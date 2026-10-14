@@ -1,6 +1,6 @@
 """Offline synthetic triage demo. No AI, network access or command execution."""
 import argparse
-from datetime import datetime
+from datetime import datetime, timedelta
 from html import escape
 import json
 from pathlib import Path
@@ -23,6 +23,49 @@ def percentage(value):
     return value
 
 
+def forecast(alert, samples, trend_valid):
+    result = {'status': 'unavailable', 'next_threshold_percent': None,
+              'rate_percentage_points_per_hour': None, 'hours_from_last_sample': None,
+              'estimated_crossing_at': None, 'evidence': [alert['event_id']],
+              'summary': 'No configured thresholds are supplied; no crossing estimate is available.',
+              'limitation': 'Linear scenario, not a guaranteed alert delivery time. Two points cannot establish normal background growth; longer history is required. No cleanup, capacity change or workload change is assumed.'}
+    thresholds = alert.get('configured_thresholds_percent')
+    if thresholds is None:
+        return result
+    if not isinstance(thresholds, list) or not thresholds:
+        raise ValueError('Configured thresholds must be a non-empty list.')
+    thresholds = sorted(set(percentage(v) for v in thresholds))
+    next_values = [v for v in thresholds if v > alert['value']]
+    if not next_values:
+        result.update(status='thresholds_reached', summary='All supplied thresholds are already reached; no higher configured threshold is available.')
+        return result
+    target = next_values[0]
+    result['next_threshold_percent'] = target
+    if not trend_valid:
+        result['summary'] = f'Next configured threshold: {target:g}%. Trend data is insufficient, stale or inconsistent; estimate withheld.'
+        return result
+    first, latest = samples[0], samples[-1]
+    result['evidence'] += [first['id'], latest['id']]
+    hours = (timestamp(latest['at']) - timestamp(first['at'])).total_seconds() / 3600
+    rate = (latest['used_percent'] - first['used_percent']) / hours
+    result['rate_percentage_points_per_hour'] = rate
+    if rate <= 0:
+        result.update(status='not_projected', summary=f'Next configured threshold: {target:g}%. Current net trend is flat or declining; no crossing is projected.')
+        return result
+    if any(b['used_percent'] < a['used_percent'] for a,b in zip(samples,samples[1:])):
+        result['summary'] = f'Next configured threshold: {target:g}%. History contains a decrease; a simple linear crossing estimate is withheld.'
+        return result
+    eta = (target - latest['used_percent']) / rate
+    try:
+        crossing = (timestamp(latest['at']) + timedelta(hours=eta)).isoformat()
+    except OverflowError:
+        result['summary'] = 'Projected crossing is outside the supported date range; estimate withheld.'
+        return result
+    result.update(status='projected', hours_from_last_sample=eta, estimated_crossing_at=crossing,
+                  summary=f'Next configured threshold: {target:g}% (synthetic demo configuration). Observed growth: {rate:.2f} percentage points/hour. Estimated time: {eta:.2f} hours from the last sample ({latest["at"]}); projected crossing: {crossing}.')
+    return result
+
+
 def triage(alert, context, runbook):
     if alert.get('synthetic') is not True or context.get('synthetic') is not True:
         raise ValueError('This demo accepts explicitly synthetic data only.')
@@ -38,6 +81,7 @@ def triage(alert, context, runbook):
     facts = [{'text': f"Disk utilization was reported at {value:g}% on {alert['host_id']} at {alert['occurred_at']}.",
               'evidence': [alert['event_id']]}]
     gaps = ['Directory growth and log sizes are unknown.', 'Service impact is unknown.', 'Inode utilization is unknown.']
+    trend_valid = False
     samples = context.get('samples', [])
     if not isinstance(samples, list):
         raise ValueError('Samples must be a list.')
@@ -69,6 +113,7 @@ def triage(alert, context, runbook):
             if hours <= 0:
                 gaps.append('Metric timestamps do not define a positive interval; trend is withheld.')
             else:
+                trend_valid = True
                 change = latest['used_percent'] - first['used_percent']
                 facts.append({'text': f"Disk utilization changed from {first['used_percent']:g}% to {latest['used_percent']:g}% over {hours:g} hours ({change:+g} percentage points).",
                               'evidence': [first['id'], latest['id']]})
@@ -84,7 +129,7 @@ def triage(alert, context, runbook):
         gaps.append('No matching demo-approved runbook is available.')
     return {
         'incident_id': alert['event_id'], 'mode': 'synthetic deterministic demo — no AI',
-        'facts': facts,
+        'facts': facts, 'forecast': forecast(alert, samples, trend_valid),
         'hypotheses': ['Log growth is one possible cause, but no supporting log-size evidence is available. Data growth or insufficient filesystem capacity are alternatives.'],
         'missing_context': gaps, 'suggested_read_only_checks': checks,
         'runbook': 'disk-triage@0.1 (demo-only)' if approved else None,
@@ -96,6 +141,7 @@ def triage(alert, context, runbook):
 def markdown(report):
     lines = ['# Leaf Solutions — IT Operations Agent', '', '**Synthetic offline demo · No AI · No infrastructure actions**', '', '## Observed facts', '']
     lines += [f"- {f['text']} Evidence: {', '.join(f['evidence'])}." for f in report['facts']]
+    lines += ['', '## Time to next configured threshold', '', report['forecast']['summary'], '', report['forecast']['limitation'], '', 'Evidence: ' + ', '.join(report['forecast']['evidence'])]
     for title, key in [('Unconfirmed hypotheses', 'hypotheses'), ('Missing context', 'missing_context'), ('Suggested read-only checks', 'suggested_read_only_checks')]:
         lines += ['', f'## {title}', ''] + [f'- {v}' for v in report[key]]
     lines += ['', f"Runbook: {report['runbook'] or 'unavailable'}", '', '**Actions executed: none.**', '', f"Review: {report['review']['status']} (local demo annotation, not authenticated approval).", report['review']['note']]
@@ -109,6 +155,7 @@ def html(report):
              '<style>body{font:17px/1.65 system-ui;margin:auto;padding:40px 24px;max-width:880px;background:#f5f2ea;color:#232f32}h1{font-size:32px;line-height:1.2}h2{font-size:22px}section{background:white;padding:18px 24px;margin:20px 0;border-radius:12px}.badge{color:#944e31;font-weight:700}li{margin:8px 0}small{display:block;color:#555}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}</style>',
              '<body><p class="badge">LEAF SOLUTIONS / LOCAL DEMONSTRATION</p><h1>IT Operations Agent</h1><p>Synthetic data · Deterministic rules · No AI connection</p><section><h2>Observed facts</h2>',
              items([f["text"] + ' Evidence: ' + ', '.join(f['evidence']) for f in report['facts']]), '</section>']
+    parts += ['<section><h2>Time to next configured threshold</h2><p>' + escape(report['forecast']['summary']) + '</p><small>' + escape(report['forecast']['limitation']) + '</small><p>Evidence: ' + escape(', '.join(report['forecast']['evidence'])) + '</p></section>']
     for title, key in [('Unconfirmed hypotheses', 'hypotheses'), ('Missing context', 'missing_context'), ('Suggested read-only checks', 'suggested_read_only_checks')]:
         parts += ['<section><h2>' + title + '</h2>', items(report[key]), '</section>']
     parts += ['<section><h2>Operator review</h2><p>Actions executed: <strong>none</strong>.</p><p>Runbook: ' + escape(report['runbook'] or 'unavailable') + '</p><p>Status: ' + escape(report['review']['status']) + '</p><p>' + escape(report['review']['note']) + '</p><small>Review is a local annotation, not an authenticated approval. No actions are authorized.</small></section>',

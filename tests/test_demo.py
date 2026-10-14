@@ -22,6 +22,40 @@ class DemoTests(unittest.TestCase):
             self.assertTrue(set(fact['evidence']).issubset(r['evidence_catalog']))
         self.assertEqual(r['actions_executed'], [])
 
+    def test_forecast_95_percent(self):
+        f = self.report()['forecast']
+        self.assertEqual(f['next_threshold_percent'], 95)
+        self.assertAlmostEqual(f['hours_from_last_sample'], 1.5)
+        self.assertEqual(f['estimated_crossing_at'], '2026-10-13T13:30:00+00:00')
+
+    def test_no_threshold_no_invented_eta(self):
+        del self.alert['configured_thresholds_percent']
+        self.assertIsNone(self.report()['forecast']['hours_from_last_sample'])
+
+    def test_flat_or_declining_no_crossing(self):
+        for start in (91, 95):
+            self.context['samples'][0]['used_percent'] = start
+            self.assertEqual(self.report()['forecast']['status'], 'not_projected')
+
+    def test_forecast_withheld_for_bad_context(self):
+        self.context['samples'] = []
+        self.assertIsNone(self.report()['forecast']['hours_from_last_sample'])
+        self.setUp()
+        self.alert['occurred_at'] = '2026-10-13T13:00:00Z'
+        self.assertIsNone(self.report()['forecast']['hours_from_last_sample'])
+        self.setUp()
+        self.context['samples'][-1]['used_percent'] = 90
+        self.assertIsNone(self.report()['forecast']['hours_from_last_sample'])
+
+    def test_reached_thresholds(self):
+        self.alert['configured_thresholds_percent'] = [80, 90]
+        self.assertEqual(self.report()['forecast']['status'], 'thresholds_reached')
+
+    def test_invalid_threshold_rejected(self):
+        self.alert['configured_thresholds_percent'] = [101]
+        with self.assertRaises(ValueError):
+            self.report()
+
     def test_missing_history(self):
         self.context['samples'] = []
         r = self.report()

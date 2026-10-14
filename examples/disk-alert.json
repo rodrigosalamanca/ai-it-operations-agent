@@ -10,5 +10,11 @@
   "signal": "disk_used_percent",
   "value": 91,
   "unit": "percent",
-  "evidence_refs": ["synthetic-metric-001"]
+  "evidence_refs": [
+    "synthetic-metric-001"
+  ],
+  "configured_thresholds_percent": [
+    90,
+    95
+  ]
 }
