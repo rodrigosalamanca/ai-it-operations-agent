@@ -1,5 +1,7 @@
 # MVP roadmap and acceptance gates
 
+> Scope notice, 2026-10-13: this document describes the earlier diagnostic MVP. The current direction is historical incident prediction, described in [the customer overview](CLIENT_OVERVIEW.md). The architecture, schedule, economics and competitive position below have not been validated for that predictive scope.
+
 A preliminary offline synthetic demo is available with focused validation tests. It does not complete any production milestone below. Illustrative schedule: 8–10 weeks with one engineer at approximately 20 hours/week, plus operator/security review. This is a planning estimate, not a delivery commitment; the 200 engineering hours in the financial model exclude reviewer time.
 
 | Milestone | Planned work | Evidence required to exit |

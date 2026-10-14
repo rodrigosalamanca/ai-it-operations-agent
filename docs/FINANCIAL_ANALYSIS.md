@@ -1,5 +1,7 @@
 # Financial analysis — planning model, 50 servers
 
+> Scope notice, 2026-10-13: this document describes the earlier diagnostic MVP. The current direction is historical incident prediction, described in [the customer overview](CLIENT_OVERVIEW.md). The architecture, schedule, economics and competitive position below have not been validated for that predictive scope.
+
 Baseline date: 2026-10-13. All amounts are USD, before tax, inflation and currency conversion. This is a feasibility scenario, not a quote, valuation, forecast or investment recommendation. No customer revenue or savings have been demonstrated. Vendor references are in [competitive analysis](COMPETITIVE_ANALYSIS.md); all Leaf Solutions IT Operations Agent rates below are internal assumptions.
 
 ## Recurring cost model

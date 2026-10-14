@@ -1,14 +1,12 @@
-# Portfolio material — future integration
-
-The existing local `rodrigo-it-site` mockup is a later integration target. It has not been changed by this work. Do not add an unverified repository or demo URL.
-
-## Suggested English project card
+# Customer-facing portfolio copy
 
 **Leaf Solutions — IT Operations Agent**  
-**Leaf Solutions · Product design / pre-MVP**
+**Predictive Incident Intelligence · In development**
 
-A proposed AI assistant for small IT teams managing 50-server environments. The project explores evidence-backed incident briefs, approved runbook retrieval and read-only diagnostics, with operator review and explicit security boundaries.
+A proposed IT operations product designed to recognize patterns that preceded past incidents and identify similar warning signals in the current environment. The planned workflow combines approved monitoring and incident-history sources to produce preventive risk briefs with supporting evidence and operator-reviewed next steps.
 
-Current deliverables: architecture, MVP acceptance gates, threat model, maintenance plan, competitive research a reproducible cost model, and an offline synthetic triage demonstration based on fixed rules. The AI agent is not implemented or deployed. Performance and savings remain hypotheses to validate in a supervised pilot.
+The first pilot will focus on one incident category and measure advance notice, missed incidents and false alarms against existing monitoring. Predictive models and live connectors are not implemented; the existing synthetic diagnostic demonstration is an earlier experiment.
 
-CTA after publication: **Explore the project documentation**. Avoid “Try the agent”, “Live demo”, uptime badges, customer logos or claims of measured ROI until evidence exists.
+CTA: **Explore the product overview** → [Customer documentation](https://github.com/rodrigosalamanca/ai-it-operations-agent/blob/main/docs/CLIENT_OVERVIEW.md).
+
+Use this copy in the existing Leaf Solutions Projects page when website integration is authorized. Do not describe the experiment as a validated predictive agent or promise customer results.

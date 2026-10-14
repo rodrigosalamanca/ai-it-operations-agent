@@ -1,5 +1,7 @@
 # Planning assumptions — 50 servers
 
+> Scope notice, 2026-10-13: this document describes the earlier diagnostic MVP. The current direction is historical incident prediction, described in [the customer overview](CLIENT_OVERVIEW.md). The architecture, schedule, economics and competitive position below have not been validated for that predictive scope.
+
 Status: unvalidated planning inputs, 2026-10-13. No discovery session or workload benchmark has been completed.
 
 | Input | Baseline assumption | Validation required |

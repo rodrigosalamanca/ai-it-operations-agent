@@ -1,5 +1,7 @@
 # Competitive analysis
 
+> Scope notice, 2026-10-13: this document describes the earlier diagnostic MVP. The current direction is historical incident prediction, described in [the customer overview](CLIENT_OVERVIEW.md). The architecture, schedule, economics and competitive position below have not been validated for that predictive scope.
+
 Research date: 2026-10-13. Vendor statements describe advertised capabilities, not independently tested results. Prices are listed USD references, not customer quotes; confirm region, contract, allowances and billing terms before purchase. Leaf Solutions IT Operations Agent has an offline synthetic rules-based demonstration, but no AI agent, production capability or validated market advantage.
 
 | Alternative | Source-backed reference | Implication for Leaf Solutions IT Operations Agent — hypothesis |

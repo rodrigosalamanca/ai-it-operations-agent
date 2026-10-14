@@ -1,5 +1,7 @@
 # Proposed architecture
 
+> Scope notice, 2026-10-13: this document describes the earlier diagnostic MVP. The current direction is historical incident prediction, described in [the customer overview](CLIENT_OVERVIEW.md). The architecture, schedule, economics and competitive position below have not been validated for that predictive scope.
+
 Status: proposed production architecture. A separate offline deterministic demo implements synthetic file validation and reporting only; no production component or AI gateway is implemented. Choices remain provisional.
 
 ## MVP components and boundaries
